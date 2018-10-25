@@ -15,12 +15,18 @@ router.get('/:itemId',(req,res,next)=>{
     mc.query('SELECT * FROM items where id=?', id, 
      (error, results, fields)=> {
         if (error) throw error;
-        return res.status(200).json({ error: false, data: results[0] });
+        return res.status(201).json({ error: false, data: results[0] });
     });
 });
 //post an item
 router.post('/',(req,res,next)=>{
-    res.status(200).json({message:"success",function:"post item"});
+        var name = req.body.name;
+        var qty = req.body.qty;
+        var amount = req.body.amount;
+        mc.query(`INSERT INTO items set name ='${name}',amount =${qty},qty =${amount}`,(error, results, fields)=> {
+            if (error) throw error;
+            return res.status(202).json({ error: false, data: results, message: 'item successfully added.' });
+        });
 });
 //edit an item
 router.put('/:itemId',(req,res,next)=>{
