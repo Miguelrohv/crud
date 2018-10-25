@@ -1,11 +1,19 @@
 <%- include ../partials/header.ejs %>
-<div>
+<div class="container text-center">
     <h1>CRUD APP</h1>
-</div> 
-<ul>
-    <% for(var i=1; i < data.length; i++) {%>
-        <li><%= data[i].name +" "+ data[i].qty + " " + data[i].amount %></li>
 
+    <div class="row">
+            <div class="col-md-4"><h4> NAME</h4></div>
+            <div class="col-md-4"><h4>QTY</h4></div>
+            <div class="col-md-4"><h4>AMOUNT</h4></div>
+        </div>
+    <% for(var i=1; i < data.length; i++) {%>
+    <div class="row">
+        <div class="col-md-4"><%= data[i].name %></div>
+        <div class="col-md-4"><%= data[i].qty %></div>
+        <div class="col-md-4"><%= data[i].amount %></div>
+    </div>
     <% } %>
-    </ul>
+
+</div> 
 <%- include ../partials/footer.ejs %>
