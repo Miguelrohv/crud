@@ -4,7 +4,7 @@ const mc = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
-    database: 'crud4'
+    database: 'inventory'
 });
-
+console.log("established mysql connection");
 module.exports = mc;
