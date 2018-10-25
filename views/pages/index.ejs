@@ -1,6 +1,11 @@
 <%- include ../partials/header.ejs %>
 <div>
-    <h1>welcome to the app!</h1>
-</div>
-<script src="../../static/js/script.js"></script>
+    <h1>CRUD APP</h1>
+</div> 
+<ul>
+    <% for(var i=1; i < data.length; i++) {%>
+        <li><%= data[i].name +" "+ data[i].qty + " " + data[i].amount %></li>
+
+    <% } %>
+    </ul>
 <%- include ../partials/footer.ejs %>

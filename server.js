@@ -12,10 +12,6 @@ app.use(bodyParser.json());
 const items = require('./api/routes/items');
 app.use('/items',items);
 
-app.get('/', function(req, res) {
-    res.render('pages/index');
-});
-
 //app listen port
 app.listen(port, function () {
     console.log('Node app is running on port:'+port);
