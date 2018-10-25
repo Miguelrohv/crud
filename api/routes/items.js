@@ -30,11 +30,42 @@ router.post('/',(req,res,next)=>{
 });
 //edit an item
 router.put('/:itemId',(req,res,next)=>{
-    res.status(200).json({message:"success",function:"edit an item"});
+    let id = req.params.itemId;
+    let name = req.body.newName;
+    let qty = req.body.newQty;
+    let amount = req.body.newAmount;
+    var sql = "UPDATE items SET ";
+
+    if ( !name && !qty && !amount) {
+        return res.status(400).json({ error:error, message: 'Please provide a new name and/or a new amount and/or a new qty' });
+    }
+    if(name){
+        sql+=` name ='${name}'`;
+    }
+    if(qty){
+        sql+=`, qty ='${qty}'`;
+    }
+    if(amount){
+        sql+=`, amount ='${amount}'`;
+    }
+    sql += ` WHERE id ='${id}'`;   
+    mc.query(sql,
+      (error, results, fields)=> {
+        if (error) throw error;
+        return res.status(200).json({ error: false, data: results, message: 'product has been successfully updated.' });
+    });
 });
 //delete an item by giving an id
 router.delete('/:itemId',(req,res,next)=>{
-    res.status(200).json({message:"success",function:"delete an item"});
+    const id = req.params.itemId;
+    if (!id) {
+        return res.status(400).send({ error: true, message: 'no id found' });
+    }
+    mc.query('DELETE FROM items WHERE id = ?', id, 
+     (error, results, fields) =>{
+        if (error) throw error;
+        return res.status(201).json({ error: false, data: results, message: 'item deleted.' });
+    });
 });
 
 module.exports = router;
