@@ -11,14 +11,19 @@ router.get('/',(req,res,next)=>{
 });
 //get a specific item
 router.get('/:itemId',(req,res,next)=>{
-    res.status(200).json({message:"success",function:"get an item"});
+    const id = req.params.itemId;
+    mc.query('SELECT * FROM items where id=?', id, 
+     (error, results, fields)=> {
+        if (error) throw error;
+        return res.status(200).json({ error: false, data: results[0] });
+    });
 });
 //post an item
 router.post('/',(req,res,next)=>{
     res.status(200).json({message:"success",function:"post item"});
 });
 //edit an item
-router.put('/itemId',(req,res,next)=>{
+router.put('/:itemId',(req,res,next)=>{
     res.status(200).json({message:"success",function:"edit an item"});
 });
 //delete an item by giving an id
