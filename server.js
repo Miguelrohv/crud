@@ -11,3 +11,7 @@ app.use('/items',items);
 app.use(bodyParser.urlencoded({extended:false}));
 //extracts json data
 app.use(bodyParser.json());
+//app listen port
+app.listen(port, function () {
+    console.log('Node app is running on port:'+port);
+});
