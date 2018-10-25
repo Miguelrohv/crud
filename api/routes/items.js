@@ -3,7 +3,11 @@ const router = express.Router();//import express Router. conviniently handle rou
 const mc = require('../../db_con');
 
 router.get('/',(req,res,next)=>{
-    res.status(200).json({message:"success",function:"get items"});
+    mc.query('SELECT * FROM items', 
+     (error, results, fields)=> {
+        if (error) throw error;
+        return res.status(201).json({ error: false, data: results, message: 'fetch success', });
+    });
 });
 //get a specific item
 router.get('/:itemId',(req,res,next)=>{
