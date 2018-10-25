@@ -1,4 +1,12 @@
 # crud
+----------------------------------------------------
+created the  app as per requirements-(no validation, etc. aside from the minimal page routes handling).
+----------------------------------------------------
+#no EJS experience
+try to create web pages accessing the functionalities.
+
+<i>i can do it with Jquery as i have experience with it.</i>
+
 
 created an API app that does GET,POST,PUT,DELETE.
 
