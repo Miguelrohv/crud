@@ -1,9 +1,10 @@
 # crud
 ----------------------------------------------------
-created the  app as per requirements-(no validation, etc. aside from the minimal page routes handling).
+created the  app as per requirements-(no validation, etc. aside from the minimal resource handling).
 ----------------------------------------------------
-#no EJS experience
-try to create web pages accessing the functionalities.
+# no EJS experience
+
+now trying to create web pages accessing the functionalities.
 
 <i>i can do it with Jquery as i have experience with it.</i>
 
