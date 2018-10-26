@@ -1,6 +1,9 @@
 # crud
 ----------------------------------------------------
-created the  app as per requirements-(no validation, etc. aside from the minimal resource handling).
+
+## to open the app. go to localhost:3000/items 
+## to open the API go to localhost:3000/items/API 
+
 ----------------------------------------------------
 #### no EJS experience
 
