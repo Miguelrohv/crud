@@ -49,6 +49,7 @@ router.put('/API/:itemId',(req,res,next)=>{
         sql+=`, amount ='${amount}'`;
     }
     sql += ` WHERE id ='${id}'`;   
+    console.log(sql);   
     mc.query(sql,
       (error, results, fields)=> {
         if (error) throw error;

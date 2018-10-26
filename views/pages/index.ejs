@@ -9,18 +9,25 @@ $(()=>{
        let item = {id:$('#id').val()};
        deleteItem(item);
     });
-})
-function postItem(item){
-$.post('/items/API',item);
-}
+    $('#upd_send').click(()=>{
+       let upd_item = {itemId:$('#upd_id').val(),newName:$('#upd_name').val(),newQty:$('#upd_qty').val(),newAmount:$('#upd_amount').val()};
+       console.log(JSON.stringify(upd_item));
+       updateItem(upd_item);
 
+    });
+})
 function updateItem(item){
     $.ajax({
-   url: '/items/API/'+item.id,
+   url: '/items/API/'+item.itemId,
    data: item,
    type: 'PUT',
 });
 }
+function postItem(item){
+$.post('/items/API',item);
+}
+
+
 function deleteItem(item){
 $.ajax({
    url: '/items/API/'+item.id,
