@@ -14,19 +14,19 @@ created an API app that does GET,POST,PUT,DELETE.
 > GET http://localhost:3000/items/API -get the list of items as JSON
 > GET http://localhost:3000/items/ you get the list of items as html
 <br>
-> GET localhost:3000/items/API/1 
+GET localhost:3000/items/API/1 
     <br>get the details of an item as JSON<br>
 <i>NOTE: any get aside from these ~~two~~ three, does nothing.</i>
 
-> POST localhost:3000/items/API 
+ POST localhost:3000/items/API 
     <br>add an item to database by JSON<br>
 <i>NOTE: any post aside from this does nothing.</i>
 
-> DELETE localhost:3000/items/API/1 
+DELETE localhost:3000/items/API/1 
     <br>deletes a specific item specified in the res.params.itemId<br>
 <i>NOTE: any delete aside from this one does nothing.</i>
 
 
-> PUT localhost:3000/items/API/1 
+PUT localhost:3000/items/API/1 
     <br>update a specific item specified in the res.params.itemId<br>
 <i>NOTE: any put aside from this one does nothing.</i>
