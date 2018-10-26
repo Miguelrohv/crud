@@ -12,9 +12,11 @@ created an API app that does GET,POST,PUT,DELETE.
 
 #### as of 21st. commit.
 GET http://localhost:3000/items/API -
-<br>get the list of items as JSON
+<br>get the list of items as JSON <br>
 GET http://localhost:3000/items/ 
-<br>you get the list of items as html
+<br>you get the list of items as html having fields to:
+#### update , delete , add
+items within page.
 <br>
 GET localhost:3000/items/API/1 
     <br>get the details of an item as JSON<br>
