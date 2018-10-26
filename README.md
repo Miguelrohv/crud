@@ -16,7 +16,7 @@ created an API app that does GET,POST,PUT,DELETE.
 <br>
 GET localhost:3000/items/API/1 
     <br>get the details of an item as JSON<br>
-<i>NOTE: any get aside from these ~~two~~ three, does nothing.</i>
+<i>NOTE: any get aside from these three, it does nothing.</i>
 
  POST localhost:3000/items/API 
     <br>add an item to database by JSON<br>
