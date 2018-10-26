@@ -23,7 +23,7 @@ router.post('/API',(req,res,next)=>{
         var name = req.body.name;
         var qty = req.body.qty;
         var amount = req.body.amount;
-        mc.query(`INSERT INTO items set name ='${name}',amount =${qty},qty =${amount}`,(error, results, fields)=> {
+        mc.query(`INSERT INTO items set name ='${name}',amount =${amount},qty =${qty}`,(error, results, fields)=> {
             if (error) throw error;
             return res.status(202).json({ error: false, data: results, message: 'item successfully added.' });
         });

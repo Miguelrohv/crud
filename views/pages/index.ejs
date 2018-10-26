@@ -1,4 +1,19 @@
 <%- include ../partials/header.ejs %>
+<script>
+$(()=>{
+    $('#send').click(()=>{
+       var item = {name:$('#name').val(),qty:$('#qty').val(),amount:$('#amount').val()}
+       postMessages(item);
+    //these are empty sinces it's HTML parsed... go to server app.use()
+        //addMessage({name:'Tim',message:'hello'})//for now addMessage Sends static json
+    })
+})
+function postMessages(item){
+var str_item  = JSON.stringify(item);
+alert(str_item);
+// $.post('/items/API',item);
+}
+</script>
 <div class="container text-center">
     <h1>CRUD APP</h1>
 
@@ -14,6 +29,19 @@
         <div class="col-md-4"><%= data[i].amount %></div>
     </div>
     <% } %>
+    <div class='col-md-4'>
+
+    </div>
+    
+    <div class='col-md-4'>
+            <input id="name" class="form-control" placeholder="name">
+            <input id="qty" class="form-control" placeholder="qty">
+            <input id="amount" class="form-control" placeholder="amount">
+            <button id="send" class="btn btn-success">add</button>
+    </div>
+    <div class='col-md-4'>
+
+    </div>
 
 </div> 
 <%- include ../partials/footer.ejs %>
