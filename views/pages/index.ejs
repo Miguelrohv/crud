@@ -2,16 +2,31 @@
 <script>
 $(()=>{
     $('#send').click(()=>{
-       var item = {name:$('#name').val(),qty:$('#qty').val(),amount:$('#amount').val()}
-       postMessages(item);
-    //these are empty sinces it's HTML parsed... go to server app.use()
-        //addMessage({name:'Tim',message:'hello'})//for now addMessage Sends static json
-    })
+       let item = {name:$('#name').val(),qty:$('#qty').val(),amount:$('#amount').val()};
+       postItem(item);
+    });
+    $('#delete').click(()=>{
+       let item = {id:$('#id').val()};
+       deleteItem(item);
+    });
 })
-function postMessages(item){
-var str_item  = JSON.stringify(item);
-alert(str_item);
-// $.post('/items/API',item);
+function postItem(item){
+$.post('/items/API',item);
+}
+
+function updateItem(item){
+    $.ajax({
+   url: '/items/API/'+item.id,
+   data: item,
+   type: 'PUT',
+});
+}
+function deleteItem(item){
+$.ajax({
+   url: '/items/API/'+item.id,
+   type: 'DELETE',
+});
+
 }
 </script>
 <div class="container text-center">
@@ -22,25 +37,39 @@ alert(str_item);
             <div class="col-md-4"><h4>QTY</h4></div>
             <div class="col-md-4"><h4>AMOUNT</h4></div>
         </div>
-    <% for(var i=1; i < data.length; i++) {%>
+    <% for(var i=0; i < data.length; i++) {%>
     <div class="row">
-        <div class="col-md-4"><%= data[i].name %></div>
-        <div class="col-md-4"><%= data[i].qty %></div>
-        <div class="col-md-4"><%= data[i].amount %></div>
+        <div class="col-md-3"><%= data[i].id %></div>
+        <div class="col-md-3"><%= data[i].name %></div>
+        <div class="col-md-3"><%= data[i].qty %></div>
+        <div class="col-md-3"><%= data[i].amount %></div>
     </div>
     <% } %>
     <div class='col-md-4'>
-
+            <input id="upd_id" class="form-control" placeholder="id to update">
+            <br>
+            <input id="upd_name" class="form-control" placeholder="new name">
+            <br>
+            <input id="upd_qty" class="form-control" placeholder="new qty">
+            <br>
+            <input id="upd_amount" class="form-control" placeholder="new amount">
+            <br>
+            <button id="upd_send" class="btn btn-success">update</button>
     </div>
     
     <div class='col-md-4'>
             <input id="name" class="form-control" placeholder="name">
+            <br>
             <input id="qty" class="form-control" placeholder="qty">
+            <br>
             <input id="amount" class="form-control" placeholder="amount">
+            <br>
             <button id="send" class="btn btn-success">add</button>
     </div>
     <div class='col-md-4'>
-
+            <input id="id" class="form-control" placeholder="id">
+            <br>
+            <button id="delete" class="btn btn-success">delete</button>
     </div>
 
 </div> 

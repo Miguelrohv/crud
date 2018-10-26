@@ -56,7 +56,7 @@ router.put('/API/:itemId',(req,res,next)=>{
     });
 });
 //delete an item by giving an id
-router.delete('/:itemId',(req,res,next)=>{
+router.delete('/API/:itemId',(req,res,next)=>{
     const id = req.params.itemId;
     if (!id) {
         return res.status(400).send({ error: true, message: 'no id found' });
